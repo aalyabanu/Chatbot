@@ -1,6 +1,6 @@
 import React from 'react';
-import "./style.css"
-
+import "./style.css";
+import Dashboard from "./components/Dashboard";
 const App = () => {
     return (
         <>
@@ -21,6 +21,7 @@ const App = () => {
             <div>
                 <button className="continue-btn">Continue</button>
             </div>
+         <Dashboard/>
         </>
     )
 }

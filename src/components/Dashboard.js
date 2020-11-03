@@ -2,6 +2,7 @@ import React from "react";
 import ChatBot from "react-simple-chatbot";
 
 function Dashboard(props) {
+    const chosenOne=props.match.params.userChoice
     const config = {
         width: "300px",
         height: "400px",
@@ -62,7 +63,12 @@ function Dashboard(props) {
         },
     ];
 
-    return <ChatBot steps = { steps } {...config }
-    />;
+    return ( 
+        <>
+       {chosenOne}
+         <ChatBot steps = { steps } {...config }
+    />
+    </>
+    )
 }
 export default Dashboard;

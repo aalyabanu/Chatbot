@@ -1,14 +1,14 @@
-import React from "react";
+import React, {Component} from "react";
 import ChatBot from "react-simple-chatbot";
 
-function Dashboard(props) {
-    const chosenOne=props.match.params.userChoice
-    const config = {
+export class Dashboard extends Component {
+    config = {
         width: "300px",
         height: "400px",
         floating: true
     };
-    const steps = [{
+
+    steps = [{
             id: "Greet",
             message: "Hello, and welcome to MoodBot!",
             trigger: "Ask name"
@@ -63,12 +63,17 @@ function Dashboard(props) {
         },
     ];
 
-    return ( 
-        <>
-       {chosenOne}
-         <ChatBot steps = { steps } {...config }
-    />
-    </>
-    )
+    render(){
+        const chosenOne = this.props.match.params.userChoice
+        const { data } = this.props.location
+        console.log(data);
+        return(
+            <>
+            {data}
+            <ChatBot steps = { this.steps } {...this.config }/>
+            </>
+        )
+    }
 }
+
 export default Dashboard;

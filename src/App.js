@@ -1,6 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import "./style.css";
+import "./output.css";
+
 import Home from "./components/Home"
 import Dashboard from "./components/Dashboard";
 

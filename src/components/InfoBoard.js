@@ -1,15 +1,14 @@
-import React from 'react'
+import React, { Component } from 'react'
 
-const InfoBoard = (props) => {
-    // const infoOption=this.userChoice
-    // console.log(infoOption)
-    console.log(props)
-    return (
-        <div>
-            Info
-            {/* renderInfo() */}
-        </div>
-    )
+export class InfoBoard extends Component {
+    render() {
+        console.log(this.props.userChoice)
+        return (
+            <div>
+                {this.props.userChoice}
+            </div>
+        )
+    }
 }
 
 export default InfoBoard

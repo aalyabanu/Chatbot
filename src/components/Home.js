@@ -43,7 +43,7 @@ const Home = () => {
             </p> */}
 
             {(choiceMade)? (
-                <InfoBoard/>
+                <InfoBoard userChoice={userChoice} />
             ): (
 <div className="grid grid-cols-2">
             <div className="col-span-1 my-6 bg-blue-800 rounded px-4 py-4 ">

@@ -3,17 +3,14 @@ import { useState } from 'react';
 import ChatList from "../components/ChatList";
 import InfoBoard from "./InfoBoard"
 
-
 const Home = () => {
     const [userChoice, setUserChoice] = useState("")
     const [choiceMade, setChoiceMade] = useState(false)
-
 
     const choice = (e) => {
         console.log(e);
         setUserChoice(e)
         setChoiceMade(true)
-
     }
     return (
         <>
@@ -43,7 +40,6 @@ const Home = () => {
 
                     </div>
                 )}
-                
 
             <div className="col-span-2">
                 <ChatList />

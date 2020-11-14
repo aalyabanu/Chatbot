@@ -111389,3 +111389,8 @@ button.urgent{
             animation: bounce 1s infinite;
   }
 }
+
+.break {
+  flex-basis: 100%;
+  height: 0;
+}

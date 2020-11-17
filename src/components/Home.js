@@ -47,7 +47,7 @@ const Home = () => {
 
             <div className="col-span-2">
                 <ChatTrial choiceMade={choiceMade} userChoice={userChoice}/>
-                <ShortChat />
+               
             </div>
             </div>
         </>

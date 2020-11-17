@@ -1,6 +1,6 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
-import ChatList from "../components/ChatList";
+
 
 const InfoBoard = (props) => {
     const mychoice = props.userChoice;
@@ -106,10 +106,6 @@ const InfoBoard = (props) => {
 
     ]
 
-    const openBot=()=>{
-        <ChatList/>
-        console.log("openbot opened")
-    }
 
     return (
         <div className="grid md:grid-cols-2">

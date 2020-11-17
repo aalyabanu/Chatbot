@@ -1,6 +1,10 @@
 import React from 'react'
 import { useState } from 'react';
+
 import ChatTrial from "../components/ChatTrial";
+import ShortChat from "./chatLists/ShortChat";
+import MoodChat from "./chatLists/MoodChat";
+
 import InfoBoard from "./InfoBoard"
 
 const Home = () => {
@@ -43,6 +47,7 @@ const Home = () => {
 
             <div className="col-span-2">
                 <ChatTrial choiceMade={choiceMade} userChoice={userChoice}/>
+                <ShortChat />
             </div>
             </div>
         </>

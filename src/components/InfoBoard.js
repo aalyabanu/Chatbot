@@ -1,5 +1,6 @@
 import React from 'react';
-import { useState, useEffect } from 'react'
+import { useState, useEffect } from 'react';
+import ChatList from "../components/ChatList";
 
 const InfoBoard = (props) => {
     const mychoice = props.userChoice;
@@ -106,7 +107,8 @@ const InfoBoard = (props) => {
     ]
 
     const openBot=()=>{
-        
+        <ChatList/>
+        console.log("openbot opened")
     }
 
     return (
@@ -133,7 +135,7 @@ const InfoBoard = (props) => {
                                 </li>
                             })}
                         </ul>
-                        <button onClick={openBot} className="bg-white hover:bg-orange-500 text-orange-700 float-right hover:text-white py-2 px-4 border border-orange-500 hover:border-transparent rounded center">Talk to MoodBot about it.</button>
+                        {/* <button onClick={openBot} className="bg-white hover:bg-orange-500 text-orange-700 float-right hover:text-white py-2 px-4 border border-orange-500 hover:border-transparent rounded center">Talk to MoodBot about it.</button> */}
 
 
                     </div>

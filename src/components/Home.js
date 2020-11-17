@@ -1,6 +1,6 @@
 import React from 'react'
 import { useState } from 'react';
-import ChatList from "../components/ChatList";
+import ChatTrial from "../components/ChatTrial";
 import InfoBoard from "./InfoBoard"
 
 const Home = () => {
@@ -42,7 +42,7 @@ const Home = () => {
                 )}
 
             <div className="col-span-2">
-                <ChatList />
+                <ChatTrial choiceMade={choiceMade} userChoice={userChoice}/>
             </div>
             </div>
         </>

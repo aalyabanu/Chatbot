@@ -251,7 +251,7 @@ const ChatList = () => {
     
     return (
         <div>
-            <ChatBot steps={sleepSteps} {...config} />
+            <ChatBot steps={steps} {...config} />
         </div>
     )
 }

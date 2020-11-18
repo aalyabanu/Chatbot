@@ -7,116 +7,7 @@ const AnxietyChat = () => {
         height: "400px",
         floating: true
     };
-    const moodSteps = [
-            {
-            id: "welcome",
-            message: "Hello. I am MoodBot, a robot designed to help you with mental health struggles. I am a young bot, so please be patient with me.",
-            trigger: "struggle"
-        },
-
-        {
-            id: "struggle",
-            message: "What are you struggling with?",
-            trigger: "struggleOptions"
-        },
-        {
-            id: "struggleOptions",
-            options: [
-                { value: 1, label: 'Sleep', trigger: 'confirmSleep' },
-                { value: 2, label: 'Anxiety', trigger: 'confirmAnxiety' }
-              ]
-        },
-        {
-            id: "confirmSleep",
-            message: "It sounds like you're having trouble with sleep. Is that right?",
-            trigger: "confirmSleepOptions"
-        },
-        {
-            id: "confirmSleepOptions",
-            options: [
-                { value : 1, label: 'Yes', trigger: 'sleepSympathy' },
-                { value : 2, label: 'No', trigger: 'return' }
-              ]
-        },
-        {
-            id: "confirmAnxiety",
-            message: "It sounds like you're having trouble with anxiety. Is that right?",
-            trigger: "confirmAnxietyOptions"
-        },
-        {
-            id: "confirmAnxietyOptions",
-            options: [
-                { value : 1, label: 'Yes', trigger: 'anxietySympathy' },
-                { value : 2, label: 'No', trigger: 'return' }
-              ]
-        },
-        {
-            id: "return",
-            message: "Okay. I'm a bit confused, so let's go back to the beginning.",
-            trigger: "welcome"
-        },
-        {
-            id: "sleepSympathy",
-            message: "I'm sorry that you're having trouble with sleep. Can you tell me what the problem is in more detail?",
-            trigger: "sleepDetailOptions"
-        },
-        {
-            id: "sleepDetailOptions",
-            options: [
-                { value: 1, label: `I can't sleep`, trigger: 'noSleep' },
-                { value: 2, label: `I'm always tired`, trigger: 'tired' },
-                { value: 3, label: `I'm sleeping too much`, trigger: 'overSleep' },
-                { value: 4, label: `I wake up in the night`, trigger: 'waking' },
-              ]
-        },
-        {
-            id: "noSleep",
-            message: `It must be frustrating that you can't sleep. Perhaps I can help.`,
-            trigger: "noSleepAdvice"
-        },
-        {
-            id: "noSleepAdvice",
-            message: `High stress levels can make it hard to sleep. It might help to do a breathing exercise for ten minutes before bed. Read more about managing stress here:`,
-            trigger: "sleepTalkMoreQuestion"
-        },
-        {
-            id: "tired",
-            message: `It must be frustrating that you're always tired. Perhaps I can help.`,
-            trigger: "tiredAdvice"
-        },
-        {
-            id: "tiredAdvice",
-            message: `Having too much to do can cause you  to feel tired all the time. It might help to prioritise your responsibilities and ask for help from those around you. Read more about exhaustion here: `,
-            trigger: "sleepTalkMoreQuestion"
-        },
-        {
-            id: "overSleep",
-            message: `It must be difficult to sleep too much. Perhaps I can help.`,
-            trigger: "overSleepAdvice"
-        },
-        {
-            id: "overSleepAdvice",
-            message: `Needing lots of sleep might indicate an underlying health issue, such as anaemia. Just in case, it's a good idea to contact a health professional.`,
-            trigger: "sleepTalkMoreQuestion"
-        },
-        {
-            id: "waking",
-            message: `It must be difficult to keep waking up in the night. Perhaps I can help.`,
-            trigger: "wakingAdvice"
-        },
-        {
-            id: "wakingAdvice",
-            message: `High stress levels can make it hard to sleep through the night. It might help to do a breathing exercise for ten minutes before bed. Read more about managing stress here:`,
-            trigger: "sleepTalkMoreQuestion"
-        },
-        {
-            id: "sleepTalkMoreQuestion",
-            message: `Would you like to tell me more about your problem with sleep? I won't have anything to say, but I am a very good listener.`,
-            trigger: "talkMoreOptions"
-        },
-
-
-        //start of anxiety section
+    const anxSteps = [
         {
             id: "anxietySympathy",
             message: "I'm sorry that you're having trouble with anxiety. Can you tell me what the problem is in more detail?",
@@ -127,7 +18,7 @@ const AnxietyChat = () => {
             options: [
                 { value: 1, label: `I get over-anxious about things that worry me`, trigger: 'veryAnxious' },
                 { value: 2, label: `I'm always anxious`, trigger: 'alwaysAnxious' },
-                { value: 3, label: `I have episodes where I'm so anxious I feel like I'll die`, trigger: 'panic' },
+                { value: 3, label: `I have episodes of extreme anxiety`, trigger: 'panic' },
               ]
         },
         {
@@ -195,7 +86,7 @@ const AnxietyChat = () => {
     
     return (
         <div>
-            <ChatBot steps={moodSteps} {...config} />
+            <ChatBot steps={anxSteps} {...config} />
         </div>
     )
 }

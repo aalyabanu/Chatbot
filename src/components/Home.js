@@ -5,6 +5,8 @@ import ChatTrial from "../components/ChatTrial";
 import ShortChat from "./chatLists/ShortChat";
 import AnxietyChat from "./chatLists/AnxietyChat";
 import SleepChat from "./chatLists/SleepChat";
+
+
 import InfoBoard from "./InfoBoard"
 
 const Home = () => {
@@ -46,6 +48,7 @@ const Home = () => {
                 )}
 
             <div className="col-span-2">
+                <SleepChat />
                 <ChatTrial choiceMade={choiceMade} userChoice={userChoice}/>
                
             </div>

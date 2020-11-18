@@ -1,7 +1,8 @@
 import React from 'react'
 import { useState } from 'react';
 import ShortChat from "./chatLists/ShortChat";
-import MoodChat from "./chatLists/MoodChat";
+import AnxietyChat from "./chatLists/AnxietyChat";
+import SleepChat from "./chatLists/SleepChat";
 import InfoBoard from "./InfoBoard"
 
 const Home = () => {
@@ -43,7 +44,7 @@ const Home = () => {
                 )}
 
             <div className="col-span-2">
-                <ShortChat />
+                <SleepChat />
             </div>
             </div>
         </>

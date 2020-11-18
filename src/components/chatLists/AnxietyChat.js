@@ -1,7 +1,7 @@
 import React from 'react'
 import ChatBot from "react-simple-chatbot";
 
-const MoodChat = () => {
+const AnxietyChat = () => {
  const   config = {
         width: "300px",
         height: "400px",
@@ -199,4 +199,4 @@ const MoodChat = () => {
         </div>
     )
 }
-export default MoodChat;
+export default AnxietyChat;

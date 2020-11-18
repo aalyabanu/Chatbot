@@ -14,7 +14,7 @@
 }
 
 body {
-  background:linear-gradient(90deg, rgba(151,157,177,1) 43%, rgba(255,255,255,1)100%);
+  /* background:linear-gradient(90deg, rgba(151,157,177,1) 43%, rgba(255,255,255,1)100%); */
   font-family: "Lato", sans-serif;
   margin:0;
   height:100%;

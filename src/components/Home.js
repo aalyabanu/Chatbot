@@ -3,13 +3,8 @@ import { useState } from 'react';
 
 import ChatTrial from "../components/ChatTrial";
 import ShortChat from "./chatLists/ShortChat";
-<<<<<<< HEAD
 import AnxietyChat from "./chatLists/AnxietyChat";
 import SleepChat from "./chatLists/SleepChat";
-=======
-import MoodChat from "./chatLists/MoodChat";
-
->>>>>>> 70f03e18b6e3d97d540e631173c3395b9ec02bf5
 import InfoBoard from "./InfoBoard"
 
 const Home = () => {
@@ -51,12 +46,8 @@ const Home = () => {
                 )}
 
             <div className="col-span-2">
-<<<<<<< HEAD
-                <SleepChat />
-=======
                 <ChatTrial choiceMade={choiceMade} userChoice={userChoice}/>
                
->>>>>>> 70f03e18b6e3d97d540e631173c3395b9ec02bf5
             </div>
             </div>
         </>

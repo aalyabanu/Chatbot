@@ -5,9 +5,10 @@ import ChatTrial from "../components/ChatTrial";
 import ShortChat from "./chatLists/ShortChat";
 import AnxietyChat from "./chatLists/AnxietyChat";
 import SleepChat from "./chatLists/SleepChat";
+import {Container, Row, Col} from 'react-bootstrap';
 
-
-import InfoBoard from "./InfoBoard"
+import "../style.css";
+import InfoBoard from "./InfoBoard";
 
 const Home = () => {
     const [userChoice, setUserChoice] = useState("")
@@ -18,6 +19,47 @@ const Home = () => {
         setUserChoice(e)
         setChoiceMade(true)
     }
+
+    const element = document.querySelector('.aiBot');
+    window.watsonAssistantChatOptions = {
+        integrationID: "fa99d091-a5d8-4361-b7d8-433c333fd3a8", // The ID of this integration.
+        region: "eu-gb", // The region your integration is hosted in.
+        serviceInstanceID: "73ddd44d-0a6e-4208-854f-85f3a9033282", // The ID of your service instance.
+        element: element,
+        showLauncher: false,
+        onLoad: function(instance) {
+            const button = document.querySelector('.chatLauncher');
+            button.addEventListener('click', function clickListener() {
+                instance.openWindow();
+              });
+            instance.updateCSSVariables({
+                'BASE-font-family': '"Times New Roman", Times, serif',
+                '$active-primary': '#2c5282',
+                '$focus': '#2c5282',
+                '$hover-primary': '#2c5282',
+                '$interactive-01': '#2c5282',
+                "$position": "fixed",
+                "$bottom": "30px",
+                "$right": "532px",
+                "$z-index": "9999",
+                "$width": "300px",
+            }); 
+            instance.render().then(function() {
+                // Now that web chat has been rendered (but is still closed), we make the
+                // custom launcher button visible.
+                button.style.display = 'block';
+                button.classList.add('open');
+              });
+            }
+          };
+    setTimeout(function(){
+      const t=document.createElement('script');
+      t.src="https://web-chat.global.assistant.watson.appdomain.cloud/loadWatsonAssistantChat.js";
+      document.head.appendChild(t);
+    });
+
+    
+
     return (
         <>
 
@@ -47,12 +89,23 @@ const Home = () => {
                     </div>
                 )}
 
-            <div className="col-span-2">
+
+            <div id="chatTrial" className="col-span-2">
                 <SleepChat />
                 <ChatTrial choiceMade={choiceMade} userChoice={userChoice}/>
-               
             </div>
+            
+
             </div>
+
+<div id="aiBot">
+<button type="button" class="chatLauncher" style={{display: "none"}}>
+<div>
+    <strong>Intelligent MoodBot</strong>
+  </div>
+  </button>
+</div>
+                  
         </>
     )
 

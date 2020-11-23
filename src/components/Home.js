@@ -18,13 +18,27 @@ const Home = () => {
         setUserChoice(e)
         setChoiceMade(true)
     }
+
+    const goBack=()=> {
+        setChoiceMade(false)
+    }
     return (
         <>
 
 <div className="md:flex">
 
             {(choiceMade) ? (
+                <>
+                <div>
                 <InfoBoard userChoice={userChoice} />
+              
+              
+                <button className="text-red-500 mx-8 mb-8 focus:outline-none transform hover:scale-125" onClick={goBack}>
+                               <img src="https://img.icons8.com/fluent/48/000000/circled-left-2.png"/>
+                                       </button>
+                        </div>
+             
+                </>
             ) : (
                     <div className=" mx-4 my-4">
                         <div className="grid sm:grid-cols-1 bg-blue-800 rounded px-4 py-4 ">
@@ -43,13 +57,14 @@ const Home = () => {
                                 <button className="bg-red-500 hover:bg-red-700 text-white  py-2 px-4 rounded" onClick={() => choice('urgent')} >Urgent Help</button>
                             </div>
                         </div>
-
+                   
                     </div>
                 )}
 
             <div className="col-span-2">
                 <SleepChat />
                 <ChatTrial choiceMade={choiceMade} userChoice={userChoice}/>
+          
                
             </div>
             </div>

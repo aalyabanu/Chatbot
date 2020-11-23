@@ -1,7 +1,12 @@
 import React from 'react';
+import { useState } from 'react';
+import Home from './Home'
+
 
 
 const InfoBoard = (props) => {
+
+    const [choiceMade, setChoiceMade] = useState(true)
     const mychoice = props.userChoice;
     console.log("my choice is", mychoice)
 
@@ -105,10 +110,19 @@ const InfoBoard = (props) => {
 
     ]
 
+    const goBack = () => {
+       
+                console.log("back button has been clicked")
+               
+setChoiceMade(false)
+          
+      
+    }
+
 
     return (
         <div className="grid md:grid-cols-2">
-            <div className="col-span-1 my-6 mx-4  bg-indigo-700 min-h-full text-white rounded px-4 py-4 ">
+            <div className="col-span-1 my-auto mx-4  bg-indigo-700 min-h-full text-white rounded px-4 py-4 ">
 
 
 
@@ -130,8 +144,9 @@ const InfoBoard = (props) => {
                                 </li>
                             })}
                         </ul>
-                        {/* <button onClick={openBot} className="bg-white hover:bg-orange-500 text-orange-700 float-right hover:text-white py-2 px-4 border border-orange-500 hover:border-transparent rounded center">Talk to MoodBot about it.</button> */}
 
+                        {/* <button onClick={openBot} className="bg-white hover:bg-orange-500 text-orange-700 float-right hover:text-white py-2 px-4 border border-orange-500 hover:border-transparent rounded center">Talk to MoodBot about it.</button> */}
+                    
 
                     </div>
                 ))}

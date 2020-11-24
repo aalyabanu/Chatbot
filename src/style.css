@@ -91,3 +91,73 @@ button.urgent{
     background-color:#EC7063;
     color:white;
 }
+
+
+@keyframes slideInRight {
+  from {
+    transform: translate3d(100%, 0, 0);
+    visibility: visible;
+  }
+
+  to {
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+#aiBot {
+  position: fixed;
+  bottom: 30px;
+  right: 532px;
+}
+
+#chatTrial{
+  z-index: 10;
+}
+
+.chatElement {
+  height: 400px;
+  width: 100%;
+}
+
+button.chatLauncher {
+  animation-duration: 0.5s;
+  transition-duration: 0.5s;
+  position: fixed;
+  bottom: 33px;
+  right: 112px;
+  z-index: 1;
+  border: 4px solid #7703b5;
+  padding: 1em;
+  border-radius: 8px;
+  margin: 0;
+  text-decoration: none;
+  background-color: #ffffff;
+  color: #060147;
+  font-family: sans-serif;
+  font-size: 1rem;
+  cursor: pointer;
+  text-align: left;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  width: 264px;
+  opacity: 0;
+}
+
+button.chatLauncher.open {
+  animation-name: slideInRight;
+  opacity: 1;
+  position: fixed;
+}
+
+button.chatLauncher:hover,
+button.chatLauncher:focus {
+  background-color: rgb(225, 225, 254);
+  border: 4px solid #0053ba;
+  position: fixed;
+}
+
+button.chatLauncher:focus {
+  outline: 1px solid #0053ba;
+  outline-offset: -4px;
+  position: fixed;
+}

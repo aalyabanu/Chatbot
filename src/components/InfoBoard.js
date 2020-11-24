@@ -145,7 +145,7 @@ setChoiceMade(false)
                             })}
                         </ul>
 
-                        {/* <button onClick={openBot} className="bg-white hover:bg-orange-500 text-orange-700 float-right hover:text-white py-2 px-4 border border-orange-500 hover:border-transparent rounded center">Talk to MoodBot about it.</button> */}
+                      
                     
 
                     </div>

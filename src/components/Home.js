@@ -5,9 +5,10 @@ import ChatTrial from "../components/ChatTrial";
 import ShortChat from "./chatLists/ShortChat";
 import AnxietyChat from "./chatLists/AnxietyChat";
 import SleepChat from "./chatLists/SleepChat";
+import {Container, Row, Col} from 'react-bootstrap';
 
-
-import InfoBoard from "./InfoBoard"
+import "../style.css";
+import InfoBoard from "./InfoBoard";
 
 const Home = () => {
     const [userChoice, setUserChoice] = useState("")
@@ -61,13 +62,25 @@ const Home = () => {
                     </div>
                 )}
 
-            <div className="col-span-2">
+
+            <div id="chatTrial" className="col-span-2">
                 <SleepChat />
                 <ChatTrial choiceMade={choiceMade} userChoice={userChoice}/>
           
                
             </div>
+            
+
             </div>
+
+<div id="aiBot">
+<button type="button" class="chatLauncher" style={{display: "none"}}>
+<div>
+    <strong>Intelligent MoodBot</strong>
+  </div>
+  </button>
+</div>
+                  
         </>
     )
 

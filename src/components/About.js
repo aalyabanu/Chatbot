@@ -3,6 +3,7 @@ import React from 'react'
 const About = () => {
     return (
         <>
+        <div className="pb-8 mb-8">
         <div className="text-xl text-center text-orange-500 my-6 pb-4">
             <h1>What is MoodBot?</h1>
         </div>
@@ -42,7 +43,7 @@ const About = () => {
                 MoodBot can interpret user messages and have a gentle conversation with them.
                 </div>
          </div>
-
+         </div>
 
         </>
     )

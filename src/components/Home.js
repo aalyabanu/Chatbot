@@ -20,6 +20,10 @@ const Home = () => {
         setChoiceMade(true)
     }
 
+    const goBack=()=> {
+        setChoiceMade(false)
+    }
+
     const element = document.querySelector('.aiBot');
     window.watsonAssistantChatOptions = {
         integrationID: "fa99d091-a5d8-4361-b7d8-433c333fd3a8", // The ID of this integration.
@@ -57,16 +61,23 @@ const Home = () => {
       t.src="https://web-chat.global.assistant.watson.appdomain.cloud/loadWatsonAssistantChat.js";
       document.head.appendChild(t);
     });
-
-    
-
     return (
         <>
 
 <div className="md:flex">
 
             {(choiceMade) ? (
+                <>
+                <div>
                 <InfoBoard userChoice={userChoice} />
+              
+              
+                <button className="text-red-500 mx-8 mb-8 focus:outline-none transform hover:scale-125" onClick={goBack}>
+                               <img src="https://img.icons8.com/fluent/48/000000/circled-left-2.png"/>
+                                       </button>
+                        </div>
+             
+                </>
             ) : (
                     <div className=" mx-4 my-4">
                         <div className="grid sm:grid-cols-1 bg-blue-800 rounded px-4 py-4 ">
@@ -85,7 +96,7 @@ const Home = () => {
                                 <button className="bg-red-500 hover:bg-red-700 text-white  py-2 px-4 rounded" onClick={() => choice('urgent')} >Urgent Help</button>
                             </div>
                         </div>
-
+                   
                     </div>
                 )}
 
@@ -93,6 +104,8 @@ const Home = () => {
             <div id="chatTrial" className="col-span-2">
                 <SleepChat />
                 <ChatTrial choiceMade={choiceMade} userChoice={userChoice}/>
+          
+               
             </div>
             
 

@@ -444,8 +444,306 @@ const ChatList = (props) => {
         },
     ];
 
+    //GRATITUDE
+    const gratitudeSteps = [
+        {
+            id: "gratitudeIntro",
+            message: "Gratitude is a part of all our lives. But it can also help us feel better.",
+            delay: setDelay,
+            trigger: "gratitude2"
+        },
+        {
+            id: "gratitude2",
+            message: "Expressing gratitude regularly can improve your mood and make you happier.",
+            delay: setDelay,
+            trigger: "gratitude3",
+        },
+        {
+            id: "gratitude3",
+            message: `It can also make you more optimistic and give you a more positive outlook on life.`,
+            delay: setDelay,
+            trigger: "gratitude4"
+        },
+        {
+            id: "gratitude4",
+            message: `Practicing gratitude can help you and those around you feel more connected and loved.`,
+            delay: setDelay,
+            trigger: "gratitude5"
+        },
+        {
+            id: "gratitude5",
+            message: `Gratitude can even improve your physical health, by making you more likely to be active and take care of yourself.`,
+            delay: setDelay,
+            trigger: "gratitude6"
+        },
+        {
+            id: "gratitude6",
+            message: `Sounds great, doesn't it? You might be wondering how you can do all this just by being grateful.`,
+            delay: setDelay,
+            trigger: "gratitude7"
+        },
+        {
+            id: "gratitude7",
+            message: `You can start small and work your way up.`,
+            delay: setDelay,
+            trigger: "gratitude8"
+        },
+        {
+            id: "gratitude8",
+            message: `Here are some ways to start practicing gratitude.`,
+            delay: setDelay,
+            trigger: "gratitude9"
+        },
+        {
+            id: "gratitude9",
+            message: `At the start of the day, think back to yesterday and write down one thing you feel grateful for.`,
+            delay: setDelay,
+            trigger: "gratitude10"
+        },
 
+        {
+            id: "gratitude10",
+            message: "When you feel frustrated, take a moment and think about something you're grateful for. It may re-energise you.",
+            delay: setDelay,
+            trigger: "gratitude11"
+        },
+        {
+            id: "gratitude11",
+            message: "When you are with family or friends, each of you can share something you're grateful for in general, and one thing about today.",
+            delay: setDelay,
+            trigger: "gratitude12"
+        },
+        {
+            id: "gratitude12",
+            message: "Show the people around you your gratitude by writing them a note.",
+            delay: setDelay,
+            trigger: "gratitude13"
+        },
+        {
+            id: "gratitude13",
+            message: "I hope our chat has been helpful, and I wish you all the best.",
+            end: true
+        },
+    ];
 
+    //URGENT HELP
+    const urgentSteps = [
+        {
+            id: "urgent1",
+            message: "I'm sorry that you are in an urgent situation. I must ask you whether you are in immediate danger.",
+            trigger: "immediate"
+        },
+        {
+            id: "immediate",
+            options: [
+                { value: 1, label: `Yes, I am in immediate danger`, trigger: 'danger1' },
+                { value: 2, label: `No, I'm not in immediate danger`, trigger: 'safe1' },
+            ]
+        },
+        {
+            id: "danger1",
+            message: `If you are in immediate danger, please contact the emergency services. In the UK, the number to call is 999.`,
+            trigger: "danger2"
+        },
+        {
+            id: "danger2",
+            message: `I cannot contact the emergency services on your behalf. While you do that, I can keep you company.`,
+            trigger: "advice"
+        },
+        {
+            id: "safe1",
+            message: `I'm glad to hear that you aren't in immediate danger. I can provide some advice for you that may help.`,
+            trigger: "advice"
+        },
+        {
+            id: "advice",
+            message: `Do any of these statements fit with how you're feeling right now?`,
+            trigger: "adviceQuestion"
+        },
+        {
+            id: "adviceQuestion",
+            options: [
+                { value: 1, label: `I feel like I'm a burden to others.`, trigger: 'burden' },
+                { value: 2, label: `I'm under so much pressure that I can't cope`, trigger: 'pressure' },
+                { value: 3, label: `I'm suffering too much to cope with`, trigger: 'suffering' },
+            ]
+        },
+        {
+            id: "burden",
+            message: `I'm very sorry to hear that you feel like a burden. You should know that most feelings like this aren't an accurate reflection of reality.`,
+            trigger: "burden2"
+        },
+        {
+            id: "burden2",
+            message: `So even though you feel like you're a burden, you most likely aren't. It may help to think of people you know who care about you.`,
+            trigger: "burden3"
+        },
+        {
+            id: "burden3",
+            message: `I'm sure that they miss you when you're not around.`,
+            trigger: "question2"
+        },
+        {
+            id: "pressure",
+            message: `I'm very sorry to hear that you're under so much pressure. It may help to know that you're not alone.`,
+            trigger: "pressure2"
+        },
+        {
+            id: "pressure2",
+            message: `Huge numbers of people struggle with feelings of pressure every day.`,
+            trigger: "pressure3"
+        },
+        {
+            id: "pressure3",
+            message: `You could try imagining whether you'll care about the situation that's difficult now in a year's time. Will anyone care in a hundred years?`,
+            trigger: "pressure4"
+        },
+        {
+            id: "pressure4",
+            message: `This may provide a useful perspective and relieve the pressure somewhat.`,
+            trigger: "question2"
+        },
+        {
+            id: "suffering",
+            message: `I'm very sorry to hear that you're suffering so badly.`,
+            trigger: "suffering2"
+        },
+        {
+            id: "suffering2",
+            message: `Please know that suffering is temporary. Though it may seem impossible to overcome it now, you will feel better.`,
+            trigger: "suffering3"
+        },
+        {
+            id: "suffering3",
+            message: `Humans have a remarkable tendency to recover from suffering. They also tend to over-estimate how much a problem will trouble them in the future.`,
+            trigger: "suffering4"
+        },
+        {
+            id: "suffering4",
+            message: `There's no easy fix, but I'm sure that you will feel better sooner than you expect.`,
+            trigger: "question2"
+        },
+        {
+            id: "question2",
+            message: `Would you like advice on other feelings?`,
+            trigger: "question2Options"
+        },
+        {
+            id: "question2Options",
+            options: [
+                { value: 1, label: `Yes`, trigger: 'adviceQuestion' },
+                { value: 2, label: `No`, trigger: 'question3' }
+            ],
+        },
+        {
+            id: "question3",
+            message: `Would you like to tell me anything else? I won't have anything to say, but I am a very good listener.`,
+            trigger: "talkMoreOptions"
+        },
+        {
+            id: "talkMoreOptions",
+            options: [
+                { value: 1, label: `Yes`, trigger: 'talkMore' },
+                { value: 2, label: `No`, trigger: 'finish' }
+            ],
+        },
+        {
+            id: "talkMore",
+            user: true,
+            trigger: "finishQuestion"
+        },
+        {
+            id: "finishQuestion",
+            options: [
+                { value: 1, label: `I want to tell you more.`, trigger: 'talkMore' },
+                { value: 2, label: `OK, I've finished talking about this.`, trigger: 'finish' },
+            ]
+        },
+        {
+            id: "finish",
+            message: "I hope our chat has been helpful, and I wish you all the best.",
+            end: true
+        },
+    ];
+
+    //MINDFULNESS
+    const mindfulnessSteps = [
+        {
+            id: "encouragement",
+            message: "You are taking the right steps by considering mindfulness. Is there anything I can help you with.",
+            trigger: "mindfulOptions"
+        },
+        {
+            id: "mindfulOptions",
+            options: [
+                { value: 1, label: `My mind is too wild to tame!`, trigger: 'mindfulStruggles' },
+                { value: 2, label: `I don't know how to be mindful!`, trigger: 'mindfulIdeas' },
+
+            ]
+        },
+        {
+            id: "mindfulStruggles",
+            message: `Mindful is simply being aware of your thoughts and surroundings. I know it can be hard sometimes as we are constantly bombarded with distractions. `,
+            botDelay: true,
+            trigger: "offerOptions"
+        },
+        {
+            id: "offerOptions",
+            message: `Would you like me to share some tips on how to be mindful?`,
+            botDelay: true,
+            trigger: "userConsent"
+        },
+        {
+            id: "userConsent",
+            options: [
+                { value: 1, label: `Yes`, trigger: 'waysToMindfulness' },
+                { value: 2, label: `No`, trigger: 'finish' }
+            ],
+        },
+        {
+            id: "waysToMindfulness",
+            message: `The key to simply keep practising and be kind to yourself. If you find your mind wandering which is often the case with most beginners, don't be too hard on yourself. Gently bring your mind back to the current moment. There is no end to mindfulness- you can begin it again over and over.`,
+            botDelay: true,
+            trigger: "mindfulTalkMoreQuestion"
+        },
+        {
+            id: "mindfulIdeas",
+            message: `If you are beginner, it might be helpful to watch some videos or attend a course on mindfulness. You can practise mindfulness in any situation, whether you are taking a walk, washing dishes or even dealing with a difficult situation. Whatever you do -be all there!`,
+            botDelay: true,
+            trigger: "offerOptions"
+        },
+
+        {
+            id: "mindfulTalkMoreQuestion",
+            message: `Would you like to tell me more about your problem with ${mychoice}? I won't have anything to say, but I am a very good listener.`,
+            trigger: "talkMoreOptions"
+        },
+        //end of relax section
+        {
+            id: "talkMoreOptions",
+            options: [
+                { value: 1, label: `Yes`, trigger: 'talkMore' },
+                { value: 2, label: `No`, trigger: 'finish' }
+            ],
+        },
+        {
+            id: "talkMore",
+            user: true,
+            trigger: "finishQuestion"
+        },
+        {
+            id: "finishQuestion",
+            options: [
+                { value: 1, label: `I want to tell you more.`, trigger: 'talkMore' },
+                { value: 2, label: `OK, I've finished talking about this.`, trigger: 'finish' },
+            ]
+        },
+        {
+            id: "finish",
+            message: "I hope our chat has been helpful, and I wish you all the best.",
+            end: true
+        },
+    ]
 
 
 
@@ -464,6 +762,15 @@ const ChatList = (props) => {
                 background: '#0899ba',
                 color: 'white'
             }} />) : (mychoice === 'anxiety') ? (<ChatBot steps={anxSteps} {...config} bubbleOptionStyle={{
+                background: '#0899ba',
+                color: 'white'
+            }} />) : (mychoice === 'gratitude') ? (<ChatBot steps={gratitudeSteps} {...config} bubbleOptionStyle={{
+                background: '#0899ba',
+                color: 'white'
+            }} />) : (mychoice === 'urgent') ? (<ChatBot steps={urgentSteps} {...config} bubbleOptionStyle={{
+                background: '#0899ba',
+                color: 'white'
+            }} />) : (mychoice === 'mindfulness') ? (<ChatBot steps={mindfulnessSteps} {...config} bubbleOptionStyle={{
                 background: '#0899ba',
                 color: 'white'
             }} />) : (<ChatBot steps={stepsOther} {...config} />)

@@ -670,7 +670,7 @@ const ChatList = (props) => {
     const mindfulnessSteps = [
         {
             id: "encouragement",
-            message: "You are taking the right steps by considering mindfulness. Is there anything I can help you with.",
+            message: "Bravo! You are taking the right steps by considering mindfulness. Is there anything I can help you with?",
             trigger: "mindfulOptions"
         },
         {
@@ -745,6 +745,85 @@ const ChatList = (props) => {
         },
     ]
 
+    // LONELINESS
+    const lonelinessSteps = [
+        {
+            id: "sympathy",
+            message: "I am sorry that you are feeling lonely today. Tell me more about it.",
+            trigger: "lonelyOptions"
+        },
+        {
+            id: "lonelyOptions",
+            options: [
+                { value: 1, label: `I wish I had someone to connect to. I have moved to a new place.`, trigger: 'isolated' },
+                { value: 2, label: `I am very shy and introverted.`, trigger: 'shy' },
+
+            ]
+        },
+        {
+            id: "isolated",
+            message: `I'm sorry that you're having that experience.You say you have moved to a new country.What better way to spend your time than exploring this strange new place you are at, understanding it's culture, understanding their way of life.And you never know you might meet some new interesting people along the way.`,
+            botDelay: true,
+            trigger: "offerOptions"
+        },
+        {
+            id: "offerOptions",
+            message: `Would you like me to share some more tips?`,
+            botDelay: true,
+            trigger: "userConsent"
+        },
+        {
+            id: "userConsent",
+            options: [
+                { value: 1, label: `Yes`, trigger: 'moreTips' },
+                { value: 2, label: `No`, trigger: 'finish' }
+            ],
+        },
+        {
+            id: "moreTips",
+            message: `Give it some time. It's not easy making friends when you have moved to a new place. Begin by joining clubs in your area of interest such as book club, cooking club etc. It is difficult to have to be the one person looking for friends in a large new group, but it can be done. You just need to meet people from various aspects of life in order to create a pool of people. Gradually with time you will make acquaintances, friends, and eventually best friends. `,
+            botDelay: true,
+            trigger: "lonelyTalkMoreQuestion"
+        },
+        {
+            id: "shy",
+            message: `If you are not a very social person it may be hard at first or a little awkward, but after a few times, you will get used to it and start making friends, the most important thing is that you have to start doing something like putting yourself in an environment where you will find people with whom you share a common interest. Besides, as a shy person you more than likely tend to listen more and speak less. People enjoy being heard, so this could be an asset to making friends.
+        `,
+            botDelay: true,
+            trigger: "lonelyTalkMoreQuestion"
+        },
+
+        {
+            id: "lonelyTalkMoreQuestion",
+            message: `Would you like to tell me more about your problem with ${mychoice}? I won't have anything to say, but I am a very good listener.`,
+            trigger: "talkMoreOptions"
+        },
+        //end of relax section
+        {
+            id: "talkMoreOptions",
+            options: [
+                { value: 1, label: `Yes`, trigger: 'talkMore' },
+                { value: 2, label: `No`, trigger: 'finish' }
+            ],
+        },
+        {
+            id: "talkMore",
+            user: true,
+            trigger: "finishQuestion"
+        },
+        {
+            id: "finishQuestion",
+            options: [
+                { value: 1, label: `I want to tell you more.`, trigger: 'talkMore' },
+                { value: 2, label: `OK, I've finished talking about this.`, trigger: 'finish' },
+            ]
+        },
+        {
+            id: "finish",
+            message: "I hope our chat has been helpful, and I wish you all the best.",
+            end: true
+        },
+    ]
 
 
     return (
@@ -771,6 +850,9 @@ const ChatList = (props) => {
                 background: '#0899ba',
                 color: 'white'
             }} />) : (mychoice === 'mindfulness') ? (<ChatBot steps={mindfulnessSteps} {...config} bubbleOptionStyle={{
+                background: '#0899ba',
+                color: 'white'
+            }} />) : (mychoice === 'loneliness') ? (<ChatBot steps={lonelinessSteps} {...config} bubbleOptionStyle={{
                 background: '#0899ba',
                 color: 'white'
             }} />) : (<ChatBot steps={stepsOther} {...config} />)
